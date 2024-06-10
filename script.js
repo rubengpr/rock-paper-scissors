@@ -28,6 +28,18 @@ function getComputerChoice() {
         const randomIndex = Math.floor(Math.random() * choices.length);
         computerSelection.textContent = choices[randomIndex];
         playRound()
+        
+        const playAgainButton = document.createElement("button")
+        playAgainButton.setAttribute("id", "playagain-button")
+        playAgainButton.textContent = "Play again"
+        result.appendChild(playAgainButton)
+
+        humanButtons.forEach(button => {
+            button.setAttribute("disabled", "true")
+        })
+        computerButton.setAttribute("disabled", "true")
+
+        playAgainButton.addEventListener("click", playAgain)
     }
 
 function getHumanChoice(event) {
@@ -54,6 +66,20 @@ function playRound() {
     } else {
         result.textContent = "No data"
     }
+}
+
+function playAgain() {
+    //Enable both human and computer buttons
+    humanButtons.forEach(button => {
+        button.removeAttribute("disabled")
+    })
+
+    //Reset p values, both for human and computer selections
+    infoHumanSelection.textContent = ""
+    computerSelection.textContent = ""
+    result.textContent = ""
+
+    //Delete all elements from result
 }
 
 humanButtons.forEach(button => {

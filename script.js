@@ -33,6 +33,7 @@ function getComputerChoice() {
 function getHumanChoice(event) {
     const humanSelection = event.target.textContent
     infoHumanSelection.textContent = humanSelection
+    computerButton.removeAttribute("disabled")
 }
 
 function playRound() {

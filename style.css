@@ -34,7 +34,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90px;
+    width: 110px;
     background-color: orange;
     padding: 0px 10px;
     border: 1px solid gray;
@@ -42,7 +42,8 @@ p {
 }
 
 .score-box-title {
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .score-box-result {

@@ -7,26 +7,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Rock, Paper, Scissors Game</title>
+    <link rel="icon" type="image/x-icon" href="images/rock.png">
+    <title>RPS Game - RG</title>
 </head>
 <body>
     <h1>Rock, Paper, Scissors Game</h1>
-    <h3>Scores</h3>
-    <p id="human-score">Human score: 0</p>
-    <p id="computer-score">Computer score: 0</p>
+    <div id="scores">
+        <div class="score-box">
+            <p class="score-box-title">Human score</p>
+            <p class="score-box-result" id="human-score">0</p>
+        </div>
+        <div class="score-box">
+            <p class="score-box-title">Computer score</p>
+            <p class="score-box-result" id="computer-score">0</p>
+        </div>
+    </div>
 
-    <h3>Human selection</h3>
-    <p id="p-human-selection">Select your choice</p>
-    <button class="human-button">Rock</button>
-    <button class="human-button">Paper</button>
-    <button class="human-button">Scissors</button>
+    <h3>Select your choice</h3>
+    <div id="selection-box">
+        <button class="human-button">Rock</button>
+        <button class="human-button">Paper</button>
+        <button class="human-button">Scissors</button>
+    </div>
+        <p id="p-human-selection">No selection</p>
     
-    <h3>Computer selection</h3>
-    <button id="computer-button" disabled>Computer selects</button>
-    <p id="computer-selection">Nothing selected yet</p>
+    <div id="computer-selection-box">
+        <button id="computer-button" disabled>See computer choice</button>
+        <p id="computer-selection"></p>
+    </div>
 
     <h3>Result</h3>
-    <p id="p-result"></p>
+    <div id="result-box">
+        <p id="p-result"></p>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

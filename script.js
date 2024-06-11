@@ -5,6 +5,8 @@ const humanButtons = document.querySelectorAll(".human-button")
 const hScore = document.getElementById("human-score")
 const cScore = document.getElementById("computer-score")
 const result = document.getElementById("p-result")
+const resultBox = document.getElementById("result-box")
+
 
 let humanScore = 0
 let computerScore = 0
@@ -13,13 +15,13 @@ let computerScore = 0
 function humanWins() {
     result.textContent = "Human wins!"
     humanScore++
-    hScore.textContent = "Human score: " + humanScore
+    hScore.textContent = humanScore
 }
 
 function computerWins() {
     result.textContent = "Computer wins!"
     computerScore++
-    cScore.textContent = "Computer score: " + computerScore
+    cScore.textContent = computerScore
 }
 
 
@@ -32,7 +34,7 @@ function getComputerChoice() {
         const playAgainButton = document.createElement("button")
         playAgainButton.setAttribute("id", "playagain-button")
         playAgainButton.textContent = "Play again"
-        result.appendChild(playAgainButton)
+        resultBox.appendChild(playAgainButton)
 
         humanButtons.forEach(button => {
             button.setAttribute("disabled", "true")
@@ -79,7 +81,10 @@ function playAgain() {
     computerSelection.textContent = ""
     result.textContent = ""
 
-    //Delete all elements from result
+    const playAgainButton = document.getElementById("playagain-button")
+    if (playAgainButton) {
+        playAgainButton.remove()
+    }
 }
 
 humanButtons.forEach(button => {

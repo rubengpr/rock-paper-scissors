@@ -4,6 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -11,29 +12,38 @@
     <title>RPS Game - RG</title>
 </head>
 <body>
-    <h1>Rock, Paper, Scissors Game</h1>
+    <div id="header">
+        <h1>ROCK PAPER SCISSORS</h1>
+    </div>
     <div id="scores">
         <div class="score-box">
-            <p class="score-box-title">Human score</p>
+            <p class="score-box-title">PLAYER 1</p>
             <p class="score-box-result" id="human-score">0</p>
         </div>
         <div class="score-box">
-            <p class="score-box-title">Computer score</p>
+            <p class="score-box-title">COMPUTER</p>
             <p class="score-box-result" id="computer-score">0</p>
         </div>
     </div>
 
-    <h3>Select your choice</h3>
-    <div id="selection-box">
-        <button class="human-button">Rock</button>
-        <button class="human-button">Paper</button>
-        <button class="human-button">Scissors</button>
+    <div id="selections">
+        <div class="selection-box">
+            <p id="p-human-selection">❔</p>
+        </div>
+        <div class="selection-box">
+            <p id="computer-selection">❔</p>
+        </div>
     </div>
-        <p id="p-human-selection">No selection</p>
+    
+    <h3>Select your choice</h3>
+    <div id="human-selection-box">
+        <button class="human-button">✊</button>
+        <button class="human-button">✋</button>
+        <button class="human-button">✌️</button>
+    </div>
     
     <div id="computer-selection-box">
-        <button id="computer-button" disabled>See computer choice</button>
-        <p id="computer-selection"></p>
+        <button id="computer-button" disabled>Get computer choice</button>
     </div>
 
     <h3>Result</h3>

@@ -13,20 +13,20 @@ let computerScore = 0
 
 
 function humanWins() {
-    result.textContent = "Human wins!"
+    result.textContent = "Human wins"
     humanScore++
     hScore.textContent = humanScore
 }
 
 function computerWins() {
-    result.textContent = "Computer wins!"
+    result.textContent = "Computer wins"
     computerScore++
     cScore.textContent = computerScore
 }
 
 
 function getComputerChoice() {
-        const choices = ["Rock", "Paper", "Scissors"];
+        const choices = ["✊", "✋", "✌️"];
         const randomIndex = Math.floor(Math.random() * choices.length);
         computerSelection.textContent = choices[randomIndex];
         playRound()
@@ -52,18 +52,18 @@ function getHumanChoice(event) {
 
 function playRound() {
     if (infoHumanSelection.textContent === computerSelection.textContent) {
-        result.textContent = "It's a draw!"
-    } else if (infoHumanSelection.textContent === "Rock" && computerSelection.textContent === "Paper") {
+        result.textContent = "It's a draw"
+    } else if (infoHumanSelection.textContent === "✊" && computerSelection.textContent === "✋") {
         computerWins()
-    } else if (infoHumanSelection.textContent === "Rock" && computerSelection.textContent === "Scissors") {
+    } else if (infoHumanSelection.textContent === "✊" && computerSelection.textContent === "✌️") {
         humanWins()
-    }  else if (infoHumanSelection.textContent === "Paper" && computerSelection.textContent === "Rock") {
+    }  else if (infoHumanSelection.textContent === "✋" && computerSelection.textContent === "✊") {
         humanWins()
-    }  else if (infoHumanSelection.textContent === "Paper" && computerSelection.textContent === "Scissors") {
+    }  else if (infoHumanSelection.textContent === "✋" && computerSelection.textContent === "✌️") {
         computerWins()
-    }  else if (infoHumanSelection.textContent === "Scissors" && computerSelection.textContent === "Rock") {
+    }  else if (infoHumanSelection.textContent === "✌️" && computerSelection.textContent === "✊") {
         computerWins()
-    }  else if (infoHumanSelection.textContent === "Scissors" && computerSelection.textContent === "Paper") {
+    }  else if (infoHumanSelection.textContent === "✌️" && computerSelection.textContent === "✋") {
         humanWins()
     } else {
         result.textContent = "No data"
@@ -77,8 +77,8 @@ function playAgain() {
     })
 
     //Reset p values, both for human and computer selections
-    infoHumanSelection.textContent = ""
-    computerSelection.textContent = ""
+    infoHumanSelection.textContent = "❔"
+    computerSelection.textContent = "❔"
     result.textContent = ""
 
     const playAgainButton = document.getElementById("playagain-button")

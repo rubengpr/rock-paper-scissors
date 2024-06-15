@@ -6,6 +6,8 @@ const hScore = document.getElementById("human-score")
 const cScore = document.getElementById("computer-score")
 const result = document.getElementById("p-result")
 const resultBox = document.getElementById("result-box")
+const modal = document.getElementById("modal")
+const resetGameButton = document.getElementById("playanothergame-button")
 
 
 let humanScore = 0
@@ -22,32 +24,6 @@ function computerWins() {
     result.textContent = "Computer wins"
     computerScore++
     cScore.textContent = computerScore
-}
-
-
-function getComputerChoice() {
-        const choices = ["✊", "✋", "✌️"];
-        const randomIndex = Math.floor(Math.random() * choices.length);
-        computerSelection.textContent = choices[randomIndex];
-        playRound()
-        
-        const playAgainButton = document.createElement("button")
-        playAgainButton.setAttribute("id", "playagain-button")
-        playAgainButton.textContent = "Play again"
-        resultBox.appendChild(playAgainButton)
-
-        humanButtons.forEach(button => {
-            button.setAttribute("disabled", "true")
-        })
-        computerButton.setAttribute("disabled", "true")
-
-        playAgainButton.addEventListener("click", playAgain)
-    }
-
-function getHumanChoice(event) {
-    const humanSelection = event.target.textContent
-    infoHumanSelection.textContent = humanSelection
-    computerButton.removeAttribute("disabled")
 }
 
 function playRound() {
@@ -68,6 +44,34 @@ function playRound() {
     } else {
         result.textContent = "No data"
     }
+}
+
+function getComputerChoice() {
+        const choices = ["✊", "✋", "✌️"];
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        computerSelection.textContent = choices[randomIndex];
+        playRound()
+        
+        const playAgainButton = document.createElement("button")
+        playAgainButton.setAttribute("id", "playagain-button")
+        playAgainButton.textContent = "Play again"
+        resultBox.appendChild(playAgainButton)
+        
+
+        humanButtons.forEach(button => {
+            button.setAttribute("disabled", "true")
+        })
+        computerButton.setAttribute("disabled", "true")
+
+        playAgainButton.addEventListener("click", playAgain)
+
+        showWinner()
+    }
+
+function getHumanChoice(event) {
+    const humanSelection = event.target.textContent
+    infoHumanSelection.textContent = humanSelection
+    computerButton.removeAttribute("disabled")
 }
 
 function playAgain() {
@@ -92,3 +96,19 @@ humanButtons.forEach(button => {
 })
 
 computerButton.addEventListener("click", getComputerChoice)
+
+function showWinner() {
+    if (humanScore === 5 || computerScore === 5) {
+        modal.style.display = "block";
+    }
+}
+
+function playAnotherGame() {
+    modal.style.display = "none"
+    humanScore = 0
+    computerScore = 0
+    hScore.textContent = humanScore
+    cScore.textContent = computerScore
+}
+
+resetGameButton.addEventListener("click", playAnotherGame)

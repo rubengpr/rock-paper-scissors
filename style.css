@@ -128,7 +128,7 @@ p {
     color: white;
 }
 
-#computer-button:hover, #playagain-button:hover {
+#computer-button:hover, #playagain-button:hover, #playanothergame-button:hover {
     background-color: rgba(26, 26, 124, 0.6);
 }
 
@@ -159,15 +159,23 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(222, 214, 255);
     border: 1px solid gray;
     border-radius: 10px;
-    width: 50%;
-    height: 50%;
-    margin: 15% auto;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 300px;
+    margin: 20% auto;
+    padding: 30px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #modal-image {
-    font-size: 80px;
+    font-size: 120px;
     margin: 20px 0;
+}
+
+#modal-title {
+    margin-top: 0;
 }

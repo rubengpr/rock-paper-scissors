@@ -8,6 +8,8 @@ const result = document.getElementById("p-result")
 const resultBox = document.getElementById("result-box")
 const modal = document.getElementById("modal")
 const resetGameButton = document.getElementById("playanothergame-button")
+const modalTitle = document.getElementById("modal-title")
+const modalEmoji = document.getElementById("modal-image")
 
 
 let humanScore = 0
@@ -56,14 +58,14 @@ function getComputerChoice() {
         playAgainButton.setAttribute("id", "playagain-button")
         playAgainButton.textContent = "Play again"
         resultBox.appendChild(playAgainButton)
+
+        playAgainButton.addEventListener("click", playAgain)
         
 
         humanButtons.forEach(button => {
             button.setAttribute("disabled", "true")
         })
         computerButton.setAttribute("disabled", "true")
-
-        playAgainButton.addEventListener("click", playAgain)
 
         showWinner()
     }
@@ -98,7 +100,13 @@ humanButtons.forEach(button => {
 computerButton.addEventListener("click", getComputerChoice)
 
 function showWinner() {
-    if (humanScore === 5 || computerScore === 5) {
+    if (humanScore === 2 || computerScore === 2 && humanScore > computerScore) {
+        modalTitle.textContent = "Human wins"
+        modalEmoji.textContent = "🙋‍♂️"
+        modal.style.display = "block";
+    } else if (humanScore === 2 || computerScore === 2 && humanScore < computerScore) {
+        modalTitle.textContent = "Computer wins"
+        modalEmoji.textContent = "💻"
         modal.style.display = "block";
     }
 }
@@ -109,6 +117,8 @@ function playAnotherGame() {
     computerScore = 0
     hScore.textContent = humanScore
     cScore.textContent = computerScore
+    infoHumanSelection.textContent = "❔"
+    computerSelection.textContent = "❔"
 }
 
 resetGameButton.addEventListener("click", playAnotherGame)
